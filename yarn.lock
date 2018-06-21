@@ -2954,9 +2954,9 @@ istanbul-reports@^1.3.0:
   dependencies:
     handlebars "^4.0.3"
 
-italia-ts-commons@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/italia-ts-commons/-/italia-ts-commons-2.1.0.tgz#440d3ec47e97de8965a07963835311712b4c17dc"
+italia-ts-commons@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/italia-ts-commons/-/italia-ts-commons-2.4.1.tgz#03ab4ea247f7a09093963ffe1a66a27e993a6706"
   dependencies:
     fp-ts "^1.6.0"
     io-ts "^1.1.4"
@@ -2967,9 +2967,9 @@ italia-tslint-rules@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/italia-tslint-rules/-/italia-tslint-rules-0.1.1.tgz#b150373925a268ff892a545229708484ac0533ba"
 
-italia-utils@^3.8.1:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/italia-utils/-/italia-utils-3.8.1.tgz#e4cfdb58d2dc8849841234972dfd2ac6bd4ba1f7"
+italia-utils@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/italia-utils/-/italia-utils-3.11.1.tgz#2148b5ab9a09128a80e4ab67f02c73324b464c08"
   dependencies:
     fs-extra "^6.0.0"
     nunjucks "^3.1.2"
