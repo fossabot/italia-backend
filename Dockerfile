@@ -15,6 +15,7 @@ RUN sudo chmod -R 777 /usr/src/app \
   && yarn install \
   && yarn generate:proxy-api-models \
   && yarn generate:api-client \
+  && yarn generate:pagopa-client \
   && yarn build
 
 FROM node:8.9.4-alpine
