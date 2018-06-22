@@ -1,6 +1,7 @@
 /* tslint:disable:no-any */
 
 import { right } from "fp-ts/lib/Either";
+import { NonNegativeInteger } from "italia-ts-commons/lib/numbers";
 import mockReq from "../../__mocks__/request";
 import mockRes from "../../__mocks__/response";
 import ApiClient from "../../services/apiClientFactory";
@@ -45,7 +46,7 @@ const proxyUserResponse = {
   spid_email: anEmailAddress,
   spid_idp: "spid_idp_name",
   token: "123hexToken",
-  version: 1 as number
+  version: 1 as NonNegativeInteger
 };
 
 // mock for a valid User
@@ -70,7 +71,7 @@ const mockedUpsertUser: ExtendedProfile = {
   isInboxEnabled: anIsInboxEnabled,
   isWebhookEnabled: anIsWebookEnabled,
   preferredLanguages: aPreferredLanguages,
-  version: 1 as number
+  version: 1 as NonNegativeInteger
 };
 
 const anErrorResponse = {

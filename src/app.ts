@@ -8,6 +8,7 @@ import container, {
   MESSAGES_CONTROLLER,
   NOTIFICATION_CONTROLLER,
   PAGOPA_CONTROLLER,
+  PAGOPA_PROXY_CONTROLLER,
   PROFILE_CONTROLLER,
   SERVICES_CONTROLLER,
   SESSION_CONTROLLER,
@@ -36,6 +37,7 @@ import { IResponse } from "italia-ts-commons/lib/responses";
 import { CIDR } from "italia-ts-commons/lib/strings";
 import AuthenticationController from "./controllers/authenticationController";
 import PagoPAController from "./controllers/pagoPAController";
+import PagoPAProxyController from "./controllers/pagoPAProxyController";
 import SessionController from "./controllers/sessionController";
 import checkIP from "./utils/middleware/checkIP";
 
@@ -189,6 +191,10 @@ function registerAPIRoutes(
     SESSION_CONTROLLER
   );
 
+  const pagoPAProxyController: PagoPAProxyController = container.resolve(
+    PAGOPA_PROXY_CONTROLLER
+  );
+
   app.get(
     `${basePath}/profile`,
     bearerTokenAuth,
@@ -280,6 +286,42 @@ function registerAPIRoutes(
     (req: express.Request, res: express.Response) => {
       toExpressHandler(sessionController.getSessionState)(
         sessionController,
+        req,
+        res
+      );
+    }
+  );
+
+  app.get(
+    `${basePath}/payment-requests/{rptId}`,
+    bearerTokenAuth,
+    (req: express.Request, res: express.Response) => {
+      toExpressHandler(pagoPAProxyController.getPaymentInfo)(
+        pagoPAProxyController,
+        req,
+        res
+      );
+    }
+  );
+
+  app.post(
+    `${basePath}/payment-activations`,
+    bearerTokenAuth,
+    (req: express.Request, res: express.Response) => {
+      toExpressHandler(pagoPAProxyController.activatePayment)(
+        pagoPAProxyController,
+        req,
+        res
+      );
+    }
+  );
+
+  app.get(
+    `${basePath}/payment-activations/{codiceContestoPagamento}`,
+    bearerTokenAuth,
+    (req: express.Request, res: express.Response) => {
+      toExpressHandler(pagoPAProxyController.getActivationStatus)(
+        pagoPAProxyController,
         req,
         res
       );
